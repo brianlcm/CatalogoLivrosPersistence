@@ -1,0 +1,61 @@
+body{
+    background: #f0f0f0;
+    position: relative;
+    min-height: 100vh;  
+}
+
+.titulo{
+    text-align: center;
+    font-size: 30px;
+}
+
+.tabela{
+    margin: 0 auto;
+    border: 1px solid #006600;
+    font-size: 18px;
+    border-collapse: collapse;
+}
+
+.tabela th{
+    margin: 0 auto;
+    border: 1px solid #006600;
+    font-size: 18px;
+    padding: 8px;
+    background: #cccccc;
+}
+
+.tabela td{
+    margin: 0 auto;
+    border: 1px solid #006600;
+    font-size: 18px;
+    padding: 8px;
+    text-align: center;
+}
+
+.tabelaFormulario{
+    text-align:center;
+    margin: 0 auto;
+    border: 1px solid #006600;
+    font-size: 18px;
+    padding: 8px;
+    color: black;
+    background: #cccccc;
+    border-radius: 8px;
+}
+
+
+.tabelaPesquisa{
+    text-align:center;
+    margin: 0 auto;
+    border: 1px solid #006600;
+    font-size: 18px;
+    padding: 8px;
+    color: black;
+    background: #cccccc;
+    border-radius: 8px;
+}
+
+.linkVoltarParaHome{
+    text-align: center;
+    text-decoration: #006600;
+}
