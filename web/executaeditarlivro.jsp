@@ -2,7 +2,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="org.mypackage.catalogo.Livro"%>
 <%@page import="dao.LivroDAO"%>
-
+<%@page import="java.util.Map.Entry"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,25 +12,25 @@
     <body>
         <% Upload upload = new Upload();
             upload.setFolderUpload("fotos");
+
             if (upload.formProcess(getServletContext(), request)) {
-                try {
-                    Livro pro = new Livro();
-                    LivroDAO prd = new LivroDAO();
-                    
-                        pro.setTitulo(request.getParameter("titulo"));
-                        pro.setAutor(request.getParameter("autor"));
-                        pro.setAno(Integer.parseInt(request.getParameter("ano")));
-                        pro.setPreco(Double.parseDouble(request.getParameter("preco")));
-                        pro.setIdEditora(Integer.parseInt(request.getParameter("idEditora")));
-                        if (!upload.getFiles().isEmpty()) {
-                            pro.setFoto(upload.getFiles().get(0));
-                        }
-                        prd.alterar2(pro);
-                        response.sendRedirect("listalivrosedicao.jsp");
-                    
-                } catch (Exception erro) {
-                    throw new RuntimeException("Erro 9: " + erro);
+                Livro pro = new Livro();
+                LivroDAO prd = new LivroDAO();
+
+                pro.setTitulo(upload.getForm().get("titulo").toString());
+                pro.setAutor(upload.getForm().get("autor").toString());
+                pro.setAno(Integer.parseInt(upload.getForm().get("ano").toString()));
+                pro.setPreco(Double.parseDouble(upload.getForm().get("preco").toString()));
+                pro.setIdEditora(Integer.parseInt(upload.getForm().get("idEditora").toString()));
+                pro.setId(Integer.parseInt(upload.getForm().get("id").toString()));
+                if (!upload.getFiles().isEmpty()) {
+                    pro.setFoto(upload.getFiles().get(0));
                 }
+
+                prd.alterar(pro);
+                response.sendRedirect("listalivrosedicao.jsp");
+                
+
             }
         %>
 

@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.apache.commons.io.FilenameUtils;
 
 /**
  *
@@ -80,7 +81,8 @@ public class Upload {
                         if (!fileName.isEmpty()) {
                             boolean isInMemory = fi.isInMemory();
                             long sizeInBytes = fi.getSize();
-                            String name = new Date().getTime() + fileName;
+                            fileName = FilenameUtils.getName(fileName);
+                            String name = fileName;
                             
                             file = new File(filePath + "/" + name);
                             fi.write(file);

@@ -8,7 +8,7 @@
     </head>
     <body>
         <h1 class="titulo">Editar Livro</h1>
-        <form class="tabelaFormulario" action="executaeditarlivro.jsp" method="post">
+        <form class="tabelaFormulario" action="executaeditarlivro.jsp" method="post" enctype="multipart/form-data">
             <label>Título:</label><br/>
             <input type="text" name="titulo" value="<%=request.getParameter("titulo")%>"/><br/>
 

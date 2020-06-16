@@ -11,6 +11,7 @@ import org.mypackage.catalogo.Livro;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
+
 public class LivroDAO {
 
     private Connection conn;
@@ -19,6 +20,7 @@ public class LivroDAO {
     private ResultSet rs;
     private ArrayList<Livro> lista = new ArrayList<>();
     EntityManager em;
+    
 
     public LivroDAO() throws Exception {
         conn = new ConnectionFactory().getConexao();
@@ -41,7 +43,7 @@ public class LivroDAO {
         }
     }
 
-    public void alterar2(Livro obj) throws Exception {
+    public void alterar(Livro obj) throws Exception {
 
         try {
             em.getTransaction().begin();
